@@ -1,4 +1,4 @@
-// pnpm playwright test tests/webUIBehavior.test.ts --headed
+// npx playwright test tests/webUIBehavior.test.ts --headed
 
 import { test, expect, Page } from '@playwright/test';
 import { IndexPage } from '../pages/indexPom';
@@ -69,3 +69,5 @@ test('Check if the text is visible when you hover a project.', async ({ page }) 
     const responsumProjectText = await indexPage.responsumProjectText.innerText();
     expect(responsumProjectText).toContain('Responsum T&M');
 });
+
+//TODO check if label is showing after clicking the connect button

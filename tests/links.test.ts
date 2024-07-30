@@ -1,4 +1,4 @@
-// pnpm playwright test tests/links.test.ts --headed
+// npx playwright test tests/links.test.ts --headed
 
 import { test, expect, Page } from '@playwright/test';
 import { IndexPage } from '../pages/indexPom';
