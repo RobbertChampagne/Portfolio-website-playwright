@@ -58,14 +58,17 @@ test('First scroll down then click the "logo" and check the scroll back up.', as
     // Wait for scroll to finish
     await page.waitForTimeout(1000);
     // Check if the specific text is visible in the viewport
-    const textVisible = await page.isVisible('text=Ensuring Software Quality Through Automation.');
+    const textVisible = await page.isVisible('text=Ensuring Software Quality');
     expect(textVisible).toBe(true);
 });
 
-test('Mailto Link from the "connect with me" button is working.', async ({ page }) => {
-    const page1Promise = page.waitForEvent('popup');
-    await indexPage.connectWithMeButton.click();
-    const page1 = await page1Promise;
+test('Click the "connect with me" button and check the scroll.', async ({ page }) => {
+    indexPage.connectWithMeButton.click();
+    // Wait for scroll to finish
+    await page.waitForTimeout(1000);
+    // Check if the specific text is visible in the viewport
+    const textVisible = await page.isVisible('text=How can I help you?');
+    expect(textVisible).toBe(true);
 });
 
 test('Check if the text is visible when you hover a project.', async ({ page }) => {

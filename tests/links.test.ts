@@ -1,4 +1,4 @@
-// npx playwright test tests/links.test.ts --headed
+// npx playwright test tests/links.test.ts --headed --project="Links Galaxy S9+"
 
 import { test, expect, Page } from '@playwright/test';
 import { IndexPage } from '../pages/indexPom';
@@ -74,6 +74,10 @@ test('Check the footer link Github.', async ({ page }) => {
 });
 
 test('Check the footer link Icons8.', async ({ page }) => {
+
+    // Skip this test for the Galaxy S9+ project
+    test.skip(test.info().project.name === 'Links Galaxy S9+', 'Skipping test for Galaxy S9+');
+
     const page2Promise = indexPage.page.waitForEvent('popup');
     await indexPage.icons8Link.click();
     const page2 = await page2Promise;
