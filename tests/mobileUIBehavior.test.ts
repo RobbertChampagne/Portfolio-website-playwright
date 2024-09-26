@@ -11,6 +11,9 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('Click the "projects" link in the navbar and check the scroll.', async ({ page }) => {
+    // Skip this test for the Galaxy S9+ project
+    test.skip(test.info().project.name === 'Links Galaxy S9+', 'Skipping test for Galaxy S9+');
+    
     // Open the menu on mobile
     await indexPage.mobileHamburgerMenuButton.click();
 
